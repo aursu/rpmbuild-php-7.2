@@ -174,7 +174,7 @@
 %global with_libzip 0
 %endif
 
-%global rpmrel 1
+%global rpmrel 2
 %global baserel %{rpmrel}%{?dist}
 
 Summary: PHP scripting language for creating dynamic web sites
@@ -541,6 +541,10 @@ Requires(pre): /usr/sbin/useradd
 # for /etc/nginx ownership
 Requires(pre): nginx-filesystem
 Requires: nginx-filesystem
+%if 0%{?rhel} >= 7
+Requires(pre): httpd-filesystem
+Requires: httpd-filesystem
+%endif
 
 %description fpm
 PHP-FPM (FastCGI Process Manager) is an alternative PHP FastCGI
@@ -1552,6 +1556,9 @@ fi
 %endif
 
 %changelog
+* Mon Mar  4 2019 Alexander Ursu <alexander.ursu@gmail.com> - 7.2.15-2
+- removed user www-data from listen.acl_users for FPM
+
 * Wed Feb  6 2019 Remi Collet <remi@remirepo.net> - 7.2.15-1
 - Update to 7.2.15 - http://www.php.net/releases/7_2_15.php
 
