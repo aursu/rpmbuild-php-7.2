@@ -248,9 +248,7 @@ Patch48: php-7.2.8-getallheaders.patch
 Patch49: php-5.6.31-no-scan-dir-override.patch
 
 # Upstream fixes (100+)
-%if 0%{?fedora}
-%patch100 -p1 -b .up
-%endif
+Patch100: php-openssl111.patch
 
 # Security fixes (200+)
 
@@ -773,7 +771,9 @@ low-level PHP extension for the libsodium cryptographic library.
 %patch49 -p1
 
 # upstream patches
-Patch100: php-openssl111.patch
+%if 0%{?fedora}
+%patch100 -p1 -b .up
+%endif
 
 # security patches
 
