@@ -179,7 +179,7 @@
 
 Summary: PHP scripting language for creating dynamic web sites
 Name: %{php_main}
-Version: 7.2.15
+Version: 7.2.16
 Release: %{rpmrel}%{?mytag}%{?aptag}%{?dist}
 
 # All files licensed under PHP version 3.01, except
@@ -234,7 +234,7 @@ Patch8: php-7.2.0-libdb.patch
 
 # Functional changes
 Patch40: php-7.2.4-dlopen.patch
-Patch42: php-7.2.3-systzdata-v16.patch
+Patch42: php-7.2.16-systzdata-v17.patch
 # See http://bugs.php.net/53436
 Patch43: php-7.2.12-phpize.patch
 # Use -lldap_r for OpenLDAP
@@ -248,6 +248,9 @@ Patch48: php-7.2.8-getallheaders.patch
 Patch49: php-5.6.31-no-scan-dir-override.patch
 
 # Upstream fixes (100+)
+%if 0%{?fedora}
+%patch100 -p1 -b .up
+%endif
 
 # Security fixes (200+)
 
@@ -770,6 +773,7 @@ low-level PHP extension for the libsodium cryptographic library.
 %patch49 -p1
 
 # upstream patches
+Patch100: php-openssl111.patch
 
 # security patches
 
@@ -1556,6 +1560,11 @@ fi
 %endif
 
 %changelog
+* Wed Mar  6 2019 Remi Collet <remi@remirepo.net> - 7.2.16-1
+- Update to 7.2.16 - http://www.php.net/releases/7_2_16.php
+- add upstream patch for OpenSSL 1.1.1b
+- adapt systzdata patch (v17)
+
 * Mon Mar  4 2019 Alexander Ursu <alexander.ursu@gmail.com> - 7.2.15-2
 - removed user www-data from listen.acl_users for FPM
 
