@@ -1560,7 +1560,7 @@ fi
 %endif
 
 %changelog
-* Wed Mar  6 2019 Remi Collet <remi@remirepo.net> - 7.2.16-1
+* Wed Mar  6 2019 Remi Collet <remi@remirepo.net> - 7.2.16-2
 - Update to 7.2.16 - http://www.php.net/releases/7_2_16.php
 - add upstream patch for OpenSSL 1.1.1b
 - adapt systzdata patch (v17)
