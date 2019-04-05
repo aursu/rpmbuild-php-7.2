@@ -174,12 +174,12 @@
 %global with_libzip 0
 %endif
 
-%global rpmrel 2
+%global rpmrel 1
 %global baserel %{rpmrel}%{?dist}
 
 Summary: PHP scripting language for creating dynamic web sites
 Name: %{php_main}
-Version: 7.2.16
+Version: 7.2.17
 Release: %{rpmrel}%{?mytag}%{?aptag}%{?dist}
 
 # All files licensed under PHP version 3.01, except
@@ -248,7 +248,6 @@ Patch48: php-7.2.8-getallheaders.patch
 Patch49: php-5.6.31-no-scan-dir-override.patch
 
 # Upstream fixes (100+)
-Patch100: php-openssl111.patch
 
 # Security fixes (200+)
 
@@ -771,9 +770,6 @@ low-level PHP extension for the libsodium cryptographic library.
 %patch49 -p1
 
 # upstream patches
-%if 0%{?fedora}
-%patch100 -p1 -b .up
-%endif
 
 # security patches
 
@@ -1560,6 +1556,9 @@ fi
 %endif
 
 %changelog
+* Wed Apr  3 2019 Remi Collet <remi@remirepo.net> - 7.2.17-1
+- Update to 7.2.17 - http://www.php.net/releases/7_2_17.php
+
 * Wed Mar  6 2019 Remi Collet <remi@remirepo.net> - 7.2.16-1
 - Update to 7.2.16 - http://www.php.net/releases/7_2_16.php
 - add upstream patch for OpenSSL 1.1.1b
