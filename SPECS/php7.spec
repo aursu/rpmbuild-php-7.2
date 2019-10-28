@@ -179,7 +179,7 @@
 
 Summary: PHP scripting language for creating dynamic web sites
 Name: %{php_main}
-Version: 7.2.22
+Version: 7.2.24
 Release: %{rpmrel}%{?mytag}%{?aptag}%{?dist}
 
 # All files licensed under PHP version 3.01, except
@@ -1556,6 +1556,9 @@ fi
 %endif
 
 %changelog
+* Tue Oct 22 2019 Remi Collet <remi@remirepo.net> - 7.2.24-1
+- Update to 7.2.24 - http://www.php.net/releases/7_2_23.php
+
 * Wed Aug 28 2019 Remi Collet <remi@remirepo.net> - 7.2.22-1
 - Update to 7.2.22 - http://www.php.net/releases/7_2_22.php
 
